@@ -1,8 +1,16 @@
 import { Routes } from '@angular/router';
-import { HeroComponent } from './components/hero/hero.component';
-import { CartComponent } from './pages/cart/cart.component';
+
+// Back-office features
+import { DashboardComponent } from './features/back-office/dashboard/dashboard.component';
 
 export const routes: Routes = [
-    { path: '', component: HeroComponent },
-  { path: 'cart', component: CartComponent }
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
+  },
 ];

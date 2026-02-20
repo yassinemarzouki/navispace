@@ -1,0 +1,56 @@
+<div class="dashboard-content">
+  <!-- Stats Cards Grid -->
+  <section class="stats-section">
+    <div *ngFor="let card of cards" class="stat-card" [style.borderLeftColor]="card.color">
+      <div class="card-icon">{{ card.icon }}</div>
+      <div class="card-body">
+        <h3 class="card-title">{{ card.title }}</h3>
+        <p class="card-value">{{ card.value }}</p>
+        <span class="card-trend" *ngIf="card.trend">{{ card.trend }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Orders Table -->
+  <section class="orders-section">
+    <div class="section-header">
+      <h2>Commandes Récentes</h2>
+      <a href="#" class="view-all">Voir tout →</a>
+    </div>
+
+    <div class="table-responsive">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>N° Commande</th>
+            <th>Client</th>
+            <th>Montant</th>
+            <th>Statut</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of recentOrders">
+            <td><span class="order-id">{{ order.id }}</span></td>
+            <td>{{ order.customer }}</td>
+            <td><strong>{{ order.total }}</strong></td>
+            <td>
+              <span class="status-badge" [ngClass]="getStatusClass(order.status)">
+                {{ order.status }}
+              </span>
+            </td>
+            <td>{{ order.date }}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-icon" title="Voir">👁️</button>
+                <button class="btn-icon" title="Éditer">✏️</button>
+                <button class="btn-icon btn-danger" title="Supprimer">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

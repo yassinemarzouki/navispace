@@ -1,0 +1,53 @@
+<header class="dashboard-header">
+  <div class="header-left">
+    <h1>Dashboard</h1>
+    <p class="breadcrumb">Admin / Dashboard</p>
+  </div>
+
+  <div class="header-right">
+    <!-- Notifications -->
+    <div class="notification-bell">
+      <button class="bell-btn">
+        🔔
+        <span class="notification-badge" *ngIf="notifications > 0">{{ notifications }}</span>
+      </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Rechercher..." />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- User Menu -->
+    <div class="user-menu">
+      <button class="user-btn" (click)="toggleUserMenu()">
+        <span class="avatar">{{ user.avatar }}</span>
+        <div class="user-info">
+          <span class="user-name">{{ user.name }}</span>
+          <span class="user-email">{{ user.email }}</span>
+        </div>
+      </button>
+
+      <!-- Backdrop pour fermer le menu -->
+      <div class="menu-backdrop" *ngIf="userMenu" (click)="userMenu = false"></div>
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu" *ngIf="userMenu" (click)="$event.stopPropagation()" [@slideIn]>
+        <a href="#" class="dropdown-item">
+          👤 Profil
+        </a>
+        <a href="#" class="dropdown-item">
+          ⚙️ Paramètres
+        </a>
+        <a href="#" class="dropdown-item">
+          📋 Historique
+        </a>
+        <hr />
+        <button class="dropdown-item logout-btn" (click)="logout()">
+          🚪 Déconnexion
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
