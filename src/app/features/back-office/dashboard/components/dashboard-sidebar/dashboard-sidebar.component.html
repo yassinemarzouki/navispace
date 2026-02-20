@@ -1,11 +1,11 @@
 <aside class="dashboard-sidebar" [class.collapsed]="!isSidebarOpen">
   <div class="sidebar-header">
     <div class="logo">
-      <span class="logo-icon">🚀</span>
+      <span class="logo-icon"><i class="fas fa-rocket"></i></span>
       <span class="logo-text" *ngIf="isSidebarOpen">NaviSpace</span>
     </div>
     <button class="toggle-btn" (click)="toggleSidebar()">
-      {{ isSidebarOpen ? '✕' : '☰' }}
+      <i [class]="isSidebarOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
     </button>
   </div>
 
@@ -17,7 +17,7 @@
       class="menu-item"
       [routerLinkActiveOptions]="{ exact: true }"
     >
-      <span class="menu-icon">{{ item.icon }}</span>
+      <span class="menu-icon"><i [class]="item.icon"></i></span>
       <span class="menu-label" *ngIf="isSidebarOpen">{{ item.label }}</span>
     </a>
   </nav>

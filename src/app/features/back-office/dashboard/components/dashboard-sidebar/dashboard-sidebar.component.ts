@@ -19,13 +19,16 @@ export class DashboardSidebarComponent {
   isSidebarOpen = true;
 
   menuItems: MenuItem[] = [
-    { label: 'Dashboard', icon: '📊', route: 'dashboard' },
-    { label: 'Produits', icon: '🛍️', route: 'products' },
-    { label: 'Commandes', icon: '📦', route: 'orders' },
-    { label: 'Clients', icon: '👥', route: 'users' },
-    { label: 'Rapports', icon: '📈', route: '#' },
-    { label: 'Paramètres', icon: '⚙️', route: '#' },
-    { label: 'Aide', icon: '❓', route: '#' }
+    { label: 'Accueil', icon: 'fas fa-home', route: 'dashboard' },
+    { label: 'Dashboard', icon: 'fas fa-chart-bar', route: 'dashboard' },
+    { label: 'Commandes', icon: 'fas fa-shopping-cart', route: 'orders' },
+    { label: 'Produits', icon: 'fas fa-cube', route: 'products' },
+    { label: 'Analytics', icon: 'fas fa-chart-line', route: 'analytics' },
+    { label: 'Applications', icon: 'fas fa-th', route: 'applications' },
+    { label: 'Website', icon: 'fas fa-globe', route: 'website' },
+    { label: 'Marketplace', icon: 'fas fa-store', route: 'marketplace' },
+    { label: 'Agent Support', icon: 'fas fa-headset', route: 'support' },
+    { label: 'Paramètres', icon: 'fas fa-cog', route: 'settings' }
   ];
 
   toggleSidebar(): void {
